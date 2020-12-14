@@ -1,5 +1,6 @@
 package com.ensa.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,10 @@ public class Chambre {
     private int numeroChambre;
     private int nbrLits;
 
+    @Column(length = 4)
+    private boolean disponibilite;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "chambre")
     private Set<CategorieChambre> categories;
 

@@ -1,5 +1,6 @@
 package com.ensa.beans;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ public class CategorieChambre {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     private String categorieName;
-    private int prix;
+    private double prix;
 
     @ManyToOne
     @JoinColumn(name="chambre_id")

@@ -2,26 +2,33 @@ package com.ensa.controller;
 
 import com.ensa.beans.Client;
 import com.ensa.dao.ClientRepository;
+import com.ensa.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
-@RestController
 @CrossOrigin
+@RestController("clients")
 public class ClientController {
 
     @Autowired
-    private ClientRepository clientRepository;
+    private ClientService clientService;
 
-    @GetMapping(value="/clients")
+    @GetMapping
     public List<Client> getClients(){
-        return clientRepository.findAll();
+        return clientService.findAll();
     }
 
-    @PostMapping(value ="/client")
+    @GetMapping("/{id}")
+    public Optional<Client> getClient(@PathVariable Long id){
+        return clientService.findById(id);
+    }
+
+    @PostMapping
     public Client saveClient(@RequestBody Client client){
-        return clientRepository.save(client);
+        return clientService.save(client);
     }
 
 }
