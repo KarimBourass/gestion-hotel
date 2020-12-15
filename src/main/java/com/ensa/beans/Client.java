@@ -28,4 +28,9 @@ public class Client {
         this.email = email;
         this.telephone = telephone;
     }
+
+	public Client() {
+		super();
+	}
+    
 }
