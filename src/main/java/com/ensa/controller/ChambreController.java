@@ -18,9 +18,10 @@ public class ChambreController {
     @GetMapping(value = "/chambres")
     public List<Chambre> getChambres(
             @RequestParam(required = false) String categorie,
-            @RequestParam(required = false) String disponibilite
+            @RequestParam(required = false) String disponibilite,
+            @RequestParam(required = false) String option
             ){
-        return chambreService.findAll(categorie,disponibilite);
+        return chambreService.findAll(categorie,disponibilite,option);
     }
 
     @GetMapping(value = "/chambres/{id}")

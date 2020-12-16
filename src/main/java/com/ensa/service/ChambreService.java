@@ -3,6 +3,7 @@ package com.ensa.service;
 import com.ensa.beans.Chambre;
 import com.ensa.dao.CategorieChambreRepository;
 import com.ensa.dao.ChambreRepository;
+import com.ensa.dao.OptionChambreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,13 +20,18 @@ public class ChambreService {
     @Autowired
     private CategorieChambreRepository categorieChambreRepository;
 
-    public List<Chambre> findAll(String categorie, String disponibilite) {
-        if( categorie == null && disponibilite == null)
+    @Autowired
+    private OptionChambreRepository optionChambreRepository;
+
+    public List<Chambre> findAll(String categorie, String disponibilite,String option) {
+        if( categorie == null && disponibilite == null && option == null)
             return chambreRepository.findAll();
         else if(categorie != null)
             return categorieChambreRepository.findByCategorie(categorie);
         else if(disponibilite != null)
             return chambreRepository.findByDisponibilite(disponibilite);
+        else if(option != null)
+            return optionChambreRepository.findByOption(option);
 
         return new ArrayList<>();
     }

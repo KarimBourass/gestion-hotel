@@ -30,4 +30,8 @@ public class Chambre {
     @ManyToOne
     @JoinColumn(name = "personnel_id")
     private PersonnelHotel personnel;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "chambre")
+    private Set<OptionChambre> options;
 }
