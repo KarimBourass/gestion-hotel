@@ -8,9 +8,6 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class PersonnelHotel {
 
     @Id
@@ -27,5 +24,62 @@ public class PersonnelHotel {
     @OneToMany(mappedBy = "personnel")
     private Set<Chambre> chambres;
 
+    public PersonnelHotel() {
+    }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNomComplet() {
+        return nomComplet;
+    }
+
+    public void setNomComplet(String nomComplet) {
+        this.nomComplet = nomComplet;
+    }
+
+    public String getSexe() {
+        return sexe;
+    }
+
+    public void setSexe(String sexe) {
+        this.sexe = sexe;
+    }
+
+    public String getCin() {
+        return cin;
+    }
+
+    public void setCin(String cin) {
+        this.cin = cin;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    public Set<Chambre> getChambres() {
+        return chambres;
+    }
+
+    public void setChambres(Set<Chambre> chambres) {
+        this.chambres = chambres;
+    }
+
+    public PersonnelHotel(String nomComplet, String sexe, String cin, Hotel hotel, Set<Chambre> chambres) {
+        this.nomComplet = nomComplet;
+        this.sexe = sexe;
+        this.cin = cin;
+        this.hotel = hotel;
+        this.chambres = chambres;
+    }
 }

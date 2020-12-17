@@ -10,9 +10,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Reservation implements Serializable {
 
     @Id

@@ -7,18 +7,26 @@ import java.io.Serializable;
 public class OptionChambre implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
     private String optionName;
 
     @ManyToOne
     @JoinColumn(name="chambre_id")
     private Chambre chambre;
 
-    public String getId() {
+    public OptionChambre() {
+    }
+
+    public OptionChambre(String optionName, Chambre chambre) {
+        this.optionName = optionName;
+        this.chambre = chambre;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
