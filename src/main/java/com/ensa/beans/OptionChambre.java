@@ -17,9 +17,9 @@ public class OptionChambre implements Serializable {
     public OptionChambre() {
     }
 
-    public OptionChambre(String optionName, Chambre chambre) {
+    public OptionChambre(Long id,String optionName) {
         this.optionName = optionName;
-        this.chambre = chambre;
+        this.id= id;
     }
 
     public Long getId() {

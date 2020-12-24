@@ -15,7 +15,7 @@ public class OptionChambreController {
 
     @GetMapping(value = "/options")
     public List<OptionChambre> getOptions(){
-        return optionChambreService.findAll();
+        return optionChambreService.getAllOptions();
     }
 
     @GetMapping(value = "/options/{id}")
