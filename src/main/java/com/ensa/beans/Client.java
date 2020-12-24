@@ -5,6 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Set;
 
 @Entity
@@ -18,6 +21,7 @@ public class Client {
     private String telephone;
 
     @OneToMany(mappedBy = "client")
+    @JsonIgnore
     private Set<Reservation> reservations;
 
     public Client(String nom, String email, String telephone) {
