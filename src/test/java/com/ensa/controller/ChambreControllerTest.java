@@ -1,4 +1,4 @@
-package com.ensa.service;
+package com.ensa.controller;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,27 +15,28 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.ensa.controller.ClientController;
+import com.ensa.controller.ChambreController;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-class ClientControllerTest {
-	
+class ChambreControllerTest {
+
 	@Autowired
 	private MockMvc mockMvc;
 	
 	@InjectMocks
-	private ClientController cc;
+	private ChambreController cc;
+	
 	
 	@Before
 	public void setUp() throws Exception{
 		mockMvc=MockMvcBuilders.standaloneSetup(cc).build();
 	}
-
+	
 	@Test
-	void testGetClient() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get("/1"))
+	void test() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.get("/chambres/1"))
 		.andExpect(MockMvcResultMatchers.status().isOk());
 	}
 

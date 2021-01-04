@@ -8,7 +8,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.ensa.beans.Reservation;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
 
 	@Query("select r from Reservation r where :x between r.dateDepart and r.dateSortie")

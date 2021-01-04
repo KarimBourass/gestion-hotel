@@ -3,14 +3,19 @@ package com.ensa.service;
 
 import com.ensa.beans.OptionChambre;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -32,9 +37,11 @@ class OptionChambreServiceTest {
     @Autowired
     ObjectMapper mapper;
 
-    @MockBean
-    OptionChambreService optionChambreService;
+    //@MockBean
+    //OptionChambreService optionChambreService;
 
+    @Autowired
+    OptionChambreService optionChambreService;
 
 
     @Test
@@ -55,7 +62,7 @@ class OptionChambreServiceTest {
     }
 
     @Test
-    public void creerUneNouvelleOption() throws Exception {
+    public void creer_une_nouvelle_option() throws Exception {
         OptionChambre optionChambre = new OptionChambre(3L,"Breakfist");
         Mockito.when(OptionChambreService.save(Mockito.any())).thenReturn(optionChambre);
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.post("/options")

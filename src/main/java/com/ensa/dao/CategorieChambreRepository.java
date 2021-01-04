@@ -15,5 +15,6 @@ public interface CategorieChambreRepository extends JpaRepository<CategorieChamb
     @Query(value = "SELECT ch.chambre FROM CategorieChambre ch where ch.categorieName like :cat")
     List<Chambre> findByCategorie(@Param("cat")String categorie);
 
+    
 
 }

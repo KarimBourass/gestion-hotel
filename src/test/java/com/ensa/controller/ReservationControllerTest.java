@@ -1,42 +1,44 @@
-package com.ensa.service;
+package com.ensa.controller;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Before;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.ensa.controller.ChambreController;
+import com.ensa.controller.ReservationController;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-class ChambreControllerTest {
+class ReservationControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
 	
 	@InjectMocks
-	private ChambreController cc;
-	
+	private ReservationController reservationController;
 	
 	@Before
 	public void setUp() throws Exception{
-		mockMvc=MockMvcBuilders.standaloneSetup(cc).build();
+		mockMvc=MockMvcBuilders.standaloneSetup(reservationController).build();
 	}
 	
 	@Test
-	void test() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get("/chambres/1"))
+	void testGetResevation() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.get("/reservations/1"))
 		.andExpect(MockMvcResultMatchers.status().isOk());
 	}
 
